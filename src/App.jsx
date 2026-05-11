@@ -34,6 +34,8 @@ export default function App() {
     setLoading(true)
     const t = await loadTournament(joinKey.trim().toUpperCase())
     if (!t) { setError('Tournoi introuvable.'); setLoading(false); return }
+    t.players = t.players || []
+    t.matches = t.matches || []
     setTournament(t); setScreen('tournament'); setJoinKey(''); setError(''); setLoading(false)
   }
 
